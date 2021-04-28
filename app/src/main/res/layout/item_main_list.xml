@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="githubRepo"
+            type="kr.hyunwoo.recyclerviewstudy.presentation.model.GithubRepo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/item_list_background"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/txt_main_repo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{githubRepo.name}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="l2hyunwoo/android_sample" />
+
+        <TextView
+            android:id="@+id/txt_main_repo_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{githubRepo.description}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_main_repo_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_repo_name"
+            tools:text="이 레포는 개쩜" />
+
+        <ImageView
+            android:id="@+id/img_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintStart_toStartOf="@+id/txt_main_repo_description"
+            app:layout_constraintTop_toBottomOf="@id/txt_main_repo_description" />
+
+        <TextView
+            android:id="@+id/txt_main_repo_stargazer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{githubRepo.starCount}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/img_star"
+            app:layout_constraintStart_toEndOf="@id/img_star"
+            app:layout_constraintTop_toTopOf="@+id/img_star"
+            tools:text="6" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
